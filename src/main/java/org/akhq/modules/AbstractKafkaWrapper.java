@@ -166,7 +166,7 @@ abstract public class AbstractKafkaWrapper {
     public Collection<ConsumerGroupListing> listConsumerGroups(String clusterId) throws ExecutionException {
         if (!this.listConsumerGroups.containsKey(clusterId)) {
             this.listConsumerGroups.put(clusterId, Logger.call(
-                kafkaModule.getAdminClient(clusterId).listConsumerGroups().all(),
+                kafkaModule.getAdminClient(clusterId).listConsumerGroups().valid(),
                 "List ConsumerGroups",
                 null
             ));
